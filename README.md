@@ -1,3 +1,6 @@
+cwh_link_to_prev
+================
+
 cwh_link_to_prev is a Textpattern plugin that provides a replacement tag for `<txp:link_to_prev />` that includes a new _format_ attribute which provides the ability to set the link format as a `link` tag suitable for placing in the `head` of any individual article page on your site. You can do this by setting the _format_ attribute like so:
 
 ```
