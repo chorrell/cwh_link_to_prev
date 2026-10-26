@@ -1,6 +1,24 @@
 cwh_link_to_prev
 ================
 
+> **Deprecated:** this plugin doesn't work on Textpattern 4.9 (its tag isn't
+> registered, so Textpattern reports "cwh_link_to_prev tag does not exist"
+> and outputs nothing), and it's no longer maintained. Core Textpattern tags
+> do the same job:
+>
+> ```html
+> <!-- Instead of <txp:cwh_link_to_prev format="link" />; outputs nothing when there's no prev article -->
+> <txp:link_to_prev wraptag='<link rel="prev" href="<+>">' />
+>
+> <!-- Instead of <txp:cwh_link_to_prev>...</txp:cwh_link_to_prev> -->
+> <txp:link_to_prev>...</txp:link_to_prev>
+> ```
+>
+> The core container tag outputs `<a rel="prev">` with the article title as
+> its `title` attribute, and works on individual article pages, including
+> in the page's `<head>`. The releases stay available for older Textpattern
+> versions.
+
 cwh_link_to_prev is a [Textpattern](http://textpattern.com) plugin that provides a replacement tag for `<txp:link_to_prev />` that includes a new _format_ attribute which provides the ability to set the link format as a `link` tag suitable for placing in the `head` of any individual article page on your site. You can do this by setting the _format_ attribute like so:
 
 ```html
