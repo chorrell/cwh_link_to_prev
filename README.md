@@ -3,31 +3,31 @@ cwh_link_to_prev
 
 cwh_link_to_prev is a [Textpattern](http://textpattern.com) plugin that provides a replacement tag for `<txp:link_to_prev />` that includes a new _format_ attribute which provides the ability to set the link format as a `link` tag suitable for placing in the `head` of any individual article page on your site. You can do this by setting the _format_ attribute like so:
 
-```
+```html
 <txp:cwh_link_to_prev title="Previous" format="link" />
 ```
 
 which will produce something similar to:
 
-```
+```html
 <link rel="prev" href="http://example.com/article/1/previous-post" title="Previous Post" />
 ```
 
 Note that when used as a single tag without the _format_ attribute specified:
 
-```
+```html
 <txp:cwh_link_to_prev />
-``` 
+```
 
 it will produce a plain text link much in the same way as `<txp:link_to_prev />`:
 
-```
+```text
 http://example.com/article/1/previous-post
 ```
 
 Finally, it can also be used as a container tag in the same manner as `<txp:link_to_prev />` if no _format_ value is specified:
 
-```
+```html
 <txp:cwh_link_to_prev> ...Text or Tag... </txp:cwh_link_to_prev>
 ```
 
@@ -57,3 +57,17 @@ release-please opens a release PR that bumps the version and updates
 `cwh_link_to_prev.txt` and a zip to the GitHub release.
 
 To build the installer yourself, run `php cwh_link_to_prev.php > cwh_link_to_prev.txt`.
+
+Pre-commit hooks
+----------------
+
+This repo uses [pre-commit](https://pre-commit.com/) to catch issues (syntax
+errors, secrets, markdown lint failures, etc.) before they're committed. Some
+hooks (markdownlint, the PHP syntax check) run in Docker, so Docker must be
+running, but PHP doesn't need to be installed locally:
+
+```bash
+pip install pre-commit   # or: brew install pre-commit
+pre-commit install
+pre-commit run --all-files
+```

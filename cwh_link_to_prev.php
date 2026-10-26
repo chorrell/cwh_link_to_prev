@@ -7,7 +7,7 @@ $plugin['author_uri'] = 'http://horrell.ca/';
 $plugin['description'] = 'A replacement tag for <txp:link_to_prev /> that includes the ability to set the output format as a <link> tag.';
 
 
-$plugin['type'] = 0; 
+$plugin['type'] = 0;
 
 
 @include_once('zem_tpl.php');
@@ -25,7 +25,7 @@ which will produce something similar to:
 
 Note that when used as a single tag without the _format_ attribute specified:
 
-@<txp:cwh_link_to_prev />@ 
+@<txp:cwh_link_to_prev />@
 
 it will produce a plain text link much in the same way as @<txp:link_to_prev />@:
 
@@ -49,7 +49,7 @@ Dive Into Accessibility":http://diveintoaccessibility.org/.
 
 # --- BEGIN PLUGIN CODE ---
 
-function cwh_link_to_prev($atts, $thing) 
+function cwh_link_to_prev($atts, $thing)
 {
 	global $id, $prev_id, $prev_title;
 
@@ -64,7 +64,7 @@ function cwh_link_to_prev($atts, $thing)
 
 		extract(getNextPrev(
 			$thisarticle['thisid'],
-			@strftime('%Y-%m-%d %H:%M:%S', $thisarticle['posted']), 
+			@strftime('%Y-%m-%d %H:%M:%S', $thisarticle['posted']),
 			@$s
 		));
 	}
@@ -78,17 +78,17 @@ function cwh_link_to_prev($atts, $thing)
 			    return '<link rel="prev" href="'.$url.'"'.
     				($prev_title != $thing ? ' title="'.$prev_title.'"' : '').' />';
 			}
-			
-			
+
+
             elseif ($thing)
             {
                 $thing = parse($thing);
-                
+
 			    return '<a rel="prev" href="'.$url.'"'.
 				    ($prev_title != $thing ? ' title="'.$prev_title.'"' : '').
 				    '>'.$thing.'</a>';
 			}
-			
+
             return $url;
 	}
 
